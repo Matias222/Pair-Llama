@@ -82,7 +82,7 @@ if __name__ == '__main__':
         "--attack-model",
         default = "vicuna-13b-v1.5",
         help = "Name of attacking model.",
-        choices=["vicuna-13b-v1.5", "llama-2-7b-chat-hf", "gpt-3.5-turbo-1106", "gpt-4-0125-preview", "claude-instant-1.2", "claude-2.1", "gemini-pro", 
+        choices=["vicuna-13b-v1.5", "llama-2-7b-chat-hf", "llama-3.2-3b-instruct", "gpt-3.5-turbo-1106", "gpt-4-0125-preview", "claude-instant-1.2", "claude-2.1", "gemini-pro",
         "mixtral","vicuna-7b-v1.5"]
     )
     parser.add_argument(
@@ -102,9 +102,9 @@ if __name__ == '__main__':
     ########### Target model parameters ##########
     parser.add_argument(
         "--target-model",
-        default = "vicuna-13b-v1.5", #TODO changed
+        default = "llama-3.2-3b-instruct",
         help = "Name of target model.",
-        choices=["vicuna-13b-v1.5", "llama-2-7b-chat-hf", "gpt-3.5-turbo-1106", "gpt-4-0125-preview", "claude-instant-1.2", "claude-2.1", "gemini-pro",]
+        choices=["vicuna-13b-v1.5", "llama-2-7b-chat-hf", "llama-3.2-3b-instruct", "gpt-3.5-turbo-1106", "gpt-4-0125-preview", "claude-instant-1.2", "claude-2.1", "gemini-pro",]
     )
     parser.add_argument(
         "--target-max-n-tokens",

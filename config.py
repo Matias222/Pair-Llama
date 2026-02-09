@@ -1,6 +1,7 @@
 from enum import Enum
 VICUNA_PATH = "/home/pchao/vicuna-13b-v1.5"
 LLAMA_PATH = "/home/pchao/Llama-2-7b-chat-hf"
+LLAMA_32_PATH = "/home/matias-avendano/Desktop/tesis/modelos/Llama-3.2-3B-Instruct"
 
 ATTACK_TEMP = 1
 TARGET_TEMP = 0
@@ -12,6 +13,7 @@ TARGET_TOP_P = 1
 class Model(Enum):
     vicuna = "vicuna-13b-v1.5"
     llama_2 = "llama-2-7b-chat-hf"
+    llama_32 = "llama-3.2-3b-instruct"
     gpt_3_5 = "gpt-3.5-turbo-1106"
     gpt_4 = "gpt-4-0125-preview"
     claude_1 = "claude-instant-1.2"
@@ -24,6 +26,7 @@ MODEL_NAMES = [model.value for model in Model]
 
 HF_MODEL_NAMES: dict[Model, str] = {
     Model.llama_2: "meta-llama/Llama-2-7b-chat-hf",
+    Model.llama_32: LLAMA_32_PATH,
     Model.vicuna: "lmsys/vicuna-13b-v1.5",
     Model.mixtral: "mistralai/Mixtral-8x7B-Instruct-v0.1"
 }
@@ -42,6 +45,7 @@ FASTCHAT_TEMPLATE_NAMES: dict[Model, str] = {
     Model.gemini: "gemini-pro",
     Model.vicuna: "vicuna_v1.1",
     Model.llama_2: "llama-2-7b-chat-hf",
+    Model.llama_32: "llama-3",
     Model.mixtral: "mixtral",
 }
 
@@ -83,10 +87,10 @@ LITELLM_TEMPLATES: dict[Model, dict] = {
                         "pre_message": "[INST] ",
                         "post_message": " [/INST]"
                     },
-                    "user": { 
+                    "user": {
                         "pre_message": "[INST] ",
                         "post_message": " [/INST]"
-                    }, 
+                    },
                     "assistant": {
                         "pre_message": " ",
                         "post_message": "",
@@ -95,5 +99,23 @@ LITELLM_TEMPLATES: dict[Model, dict] = {
                 "post_message": "</s>",
                 "initial_prompt_value" : "<s>",
                 "eos_tokens": ["</s>", "[/INST]"]
+    },
+    Model.llama_32: {"roles":{
+                    "system": {
+                        "pre_message": "<|start_header_id|>system<|end_header_id|>\n\n",
+                        "post_message": "<|eot_id|>"
+                    },
+                    "user": {
+                        "pre_message": "<|start_header_id|>user<|end_header_id|>\n\n",
+                        "post_message": "<|eot_id|>"
+                    },
+                    "assistant": {
+                        "pre_message": "<|start_header_id|>assistant<|end_header_id|>\n\n",
+                        "post_message": "",
+                    }
+                },
+                "post_message": "<|eot_id|>",
+                "initial_prompt_value" : "<|begin_of_text|>",
+                "eos_tokens": ["<|eot_id|>", "<|end_of_text|>"]
     }
 }
