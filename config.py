@@ -1,7 +1,7 @@
 from enum import Enum
 VICUNA_PATH = "/home/pchao/vicuna-13b-v1.5"
 LLAMA_PATH = "/home/pchao/Llama-2-7b-chat-hf"
-LLAMA_32_PATH = "/home/matias-avendano/Desktop/tesis/modelos/Llama-3.2-3B-Instruct"
+LLAMA_32_PATH = "../../modelos/Llama-3.2-3B-Instruct"
 
 ATTACK_TEMP = 1
 TARGET_TEMP = 0

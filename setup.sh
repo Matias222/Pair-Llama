@@ -25,7 +25,7 @@ echo "✓ Dependencies installed successfully!"
 echo ""
 
 # Check if model exists
-MODEL_PATH="/home/matias-avendano/Desktop/tesis/modelos/Llama-3.2-3B-Instruct"
+MODEL_PATH="../../modelos/Llama-3.2-3B-Instruct"
 if [ -d "$MODEL_PATH" ]; then
     echo "✓ Llama 3.2 model found at: $MODEL_PATH"
 else

@@ -137,7 +137,8 @@ El script `run_pair_llama32.py` genera ataques para:
 ### Error: Model not found
 ```python
 # Edita config.py línea 4:
-LLAMA_32_PATH = "tu/ruta/a/Llama-3.2-3B-Instruct"
+LLAMA_32_PATH = "../../modelos/Llama-3.2-3B-Instruct"
+# O usa tu ruta personalizada
 ```
 
 ### Error: CUDA out of memory
