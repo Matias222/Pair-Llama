@@ -1,0 +1,31 @@
+# PAIR Jailbreaking Requirements - Modified for Llama 3.2 3B Local Support
+
+# Core ML frameworks
+torch>=2.0.0
+transformers>=4.35.0
+accelerate>=0.25.0
+
+# API and LLM interfaces
+litellm>=1.0.0
+openai>=1.0.0
+anthropic>=0.7.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Logging and monitoring
+wandb>=0.16.0
+
+# System utilities
+psutil>=5.9.0
+tqdm>=4.66.0
+
+# Optional but recommended
+sentencepiece>=0.1.99  # For tokenization
+protobuf>=3.20.0       # For model loading
+safetensors>=0.4.0     # For safer model loading
+
+# Development tools (optional)
+ipython>=8.12.0
+jupyter>=1.0.0
